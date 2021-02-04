@@ -1,0 +1,84 @@
+{
+  "menus": {
+    "en-US": {
+      "*": [
+        {
+          "path": "/",
+          "title": "Database Guidebook - 📚 Database 知识图谱",
+          "meta": {
+            "order": 10
+          }
+        }
+      ],
+      "/basic": [
+        {
+          "title": "MongoDB",
+          "path": "/basic",
+          "meta": {
+            "order": 1
+          },
+          "children": [
+            {
+              "path": "/basic/paradigm",
+              "title": "导览",
+              "meta": {
+                "order": 1
+              }
+            }
+          ]
+        }
+      ],
+      "/mongodb": [
+        {
+          "title": "MongoDB",
+          "path": "/mongodb",
+          "meta": {
+            "order": 1
+          },
+          "children": [
+            {
+              "path": "/mongodb",
+              "title": "导览",
+              "meta": {
+                "order": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "locales": [
+    {
+      "name": "en-US",
+      "label": "English"
+    }
+  ],
+  "navs": {
+    "en-US": [
+      {
+        "title": "MongoDB",
+        "order": 1,
+        "path": "/basic"
+      },
+      {
+        "title": "MongoDB",
+        "order": 3,
+        "path": "/mongodb"
+      },
+      {
+        "title": "Github",
+        "path": "https://github.com/tsejx/database-guidebook"
+      }
+    ]
+  },
+  "title": "Database Guidebook",
+  "logo": "http://img.mrsingsing.com/database-guidebook-favicon.png",
+  "description": "Database 完全知识体系",
+  "mode": "site",
+  "repository": {
+    "url": "https://github.com/tsejx/database-guidebook",
+    "branch": "master"
+  },
+  "theme": {}
+}

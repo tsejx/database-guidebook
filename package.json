@@ -1,0 +1,24 @@
+{
+  "name": "database-guidebook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "yarn run dev",
+    "dev": "yarn run dumi dev --port=8110"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsejx/database-guidebook.git"
+  },
+  "author": "tsejx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tsejx/database-guidebook/issues"
+  },
+  "homepage": "https://github.com/tsejx/database-guidebook#readme",
+  "devDependencies": {
+    "dumi": "^1.1.4",
+    "lint-md": "^0.2.0"
+  }
+}
