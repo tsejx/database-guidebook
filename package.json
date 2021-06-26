@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/tsejx/database-guidebook#readme",
   "devDependencies": {
-    "dumi": "^1.1.4",
+    "dumi": "^1.1.20",
     "lint-md": "^0.2.0"
   }
 }

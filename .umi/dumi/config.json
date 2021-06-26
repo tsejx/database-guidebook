@@ -12,7 +12,7 @@
       ],
       "/basic": [
         {
-          "title": "MongoDB",
+          "title": "基础知识",
           "path": "/basic",
           "meta": {
             "order": 1
@@ -20,7 +20,30 @@
           "children": [
             {
               "path": "/basic/paradigm",
-              "title": "导览",
+              "title": "范式",
+              "meta": {
+                "order": 1
+              }
+            }
+          ]
+        },
+        {
+          "title": "数据库",
+          "path": "/basic/database-type",
+          "meta": {
+            "order": 1
+          },
+          "children": [
+            {
+              "path": "/basic/database-type/data-base",
+              "title": "数据库",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/basic/database-type/no-sql",
+              "title": "NoSQL",
               "meta": {
                 "order": 1
               }
@@ -30,20 +53,298 @@
       ],
       "/mongodb": [
         {
-          "title": "MongoDB",
-          "path": "/mongodb",
+          "title": "基本概述",
+          "path": "/mongodb/overview",
           "meta": {
             "order": 1
           },
           "children": [
             {
-              "path": "/mongodb",
-              "title": "导览",
+              "path": "/mongodb/overview/basic",
+              "title": "基本概述",
               "meta": {
                 "order": 1
               }
+            },
+            {
+              "path": "/mongodb/overview/installment",
+              "title": "安裝使用",
+              "meta": {
+                "order": 2
+              }
+            },
+            {
+              "path": "/mongodb/overview/administration",
+              "title": "数据库管理",
+              "meta": {
+                "order": 10
+              }
+            },
+            {
+              "path": "/mongodb/overview/configuration",
+              "title": "配置文件",
+              "meta": {
+                "order": 98
+              }
             }
           ]
+        },
+        {
+          "title": "基本操作",
+          "path": "/mongodb/basic",
+          "meta": {
+            "order": 2
+          },
+          "children": [
+            {
+              "path": "/mongodb/basic/documents",
+              "title": "文档 Documents",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/mongodb/basic/models",
+              "title": "模型 Models",
+              "meta": {
+                "order": 2
+              }
+            },
+            {
+              "path": "/mongodb/basic/schemas",
+              "title": "模式 Schema",
+              "meta": {
+                "order": 4
+              }
+            },
+            {
+              "path": "/mongodb/basic/subdocuments",
+              "title": "子文档 Subdocuments",
+              "meta": {
+                "order": 5
+              }
+            },
+            {
+              "path": "/mongodb/basic/indexes",
+              "title": "数据库索引",
+              "meta": {
+                "order": 10
+              }
+            },
+            {
+              "path": "/mongodb/basic/models-relationship",
+              "title": "数据模型关联",
+              "meta": {
+                "order": 11
+              }
+            },
+            {
+              "path": "/mongodb/basic/aggregation",
+              "title": "聚合管道",
+              "meta": {
+                "order": 20
+              }
+            }
+          ]
+        },
+        {
+          "title": "高阶应用",
+          "path": "/mongodb/advanced",
+          "meta": {
+            "order": 3
+          },
+          "children": [
+            {
+              "path": "/mongodb/advanced/authentication",
+              "title": "鉴权",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/mongodb/advanced/backup-and-recovery",
+              "title": "备份与恢复",
+              "meta": {
+                "order": 2
+              }
+            },
+            {
+              "path": "/mongodb/advanced/replication",
+              "title": "数据库副本集",
+              "meta": {
+                "order": 3
+              }
+            },
+            {
+              "path": "/mongodb/advanced/security",
+              "title": "数据库安全",
+              "meta": {
+                "order": 4
+              }
+            },
+            {
+              "path": "/mongodb/advanced/sharding",
+              "title": "数据库分片",
+              "meta": {
+                "order": 5
+              }
+            }
+          ]
+        },
+        {
+          "title": "Mongoose",
+          "path": "/mongodb/mongoose",
+          "meta": {
+            "order": 10
+          },
+          "children": [
+            {
+              "path": "/mongodb/mongoose/overview",
+              "title": "概述",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/connections",
+              "title": "连接 Connections",
+              "meta": {
+                "order": 2
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/schema-types",
+              "title": "模式类型 SchemaTypes",
+              "meta": {
+                "order": 3
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/model-api",
+              "title": "Model",
+              "meta": {
+                "order": 4
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/queries",
+              "title": "普通查询",
+              "meta": {
+                "order": 7
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/populate",
+              "title": "填充查询",
+              "meta": {
+                "order": 8
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/aggregate",
+              "title": "聚合查询",
+              "meta": {
+                "order": 9
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/hooks",
+              "title": "钩子函数",
+              "meta": {
+                "order": 10
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/middleware",
+              "title": "中间件 Middleware",
+              "meta": {
+                "order": 10
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/plugins",
+              "title": "插件",
+              "meta": {
+                "order": 11
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/validation",
+              "title": "验证",
+              "meta": {
+                "order": 15
+              }
+            },
+            {
+              "path": "/mongodb/mongoose/basic",
+              "title": "集成",
+              "meta": {
+                "order": 100
+              }
+            }
+          ]
+        },
+        {
+          "title": "基本操作",
+          "path": "/mongodb/other",
+          "meta": {
+            "order": 99
+          },
+          "children": [
+            {
+              "path": "/mongodb/other/command",
+              "title": "命令大全",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/mongodb/other/utils",
+              "title": "工具大全",
+              "meta": {
+                "order": 2
+              }
+            },
+            {
+              "path": "/mongodb/other/mongodb",
+              "title": "扩展资料",
+              "meta": {
+                "order": 5
+              }
+            }
+          ]
+        }
+      ],
+      "/mysql": [
+        {
+          "title": "MySQL",
+          "path": "/mysql",
+          "meta": {
+            "order": 10
+          },
+          "children": [
+            {
+              "path": "/mysql/mysql",
+              "title": "MySQL",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/mysql/cluster",
+              "title": "集群方案",
+              "meta": {
+                "order": 10
+              }
+            }
+          ]
+        }
+      ],
+      "/redis": [
+        {
+          "path": "/redis",
+          "title": "Radis",
+          "meta": {}
         }
       ]
     }
@@ -57,14 +358,23 @@
   "navs": {
     "en-US": [
       {
-        "title": "MongoDB",
+        "title": "基础",
         "order": 1,
         "path": "/basic"
+      },
+      {
+        "title": "MySQL",
+        "order": 2,
+        "path": "/mysql"
       },
       {
         "title": "MongoDB",
         "order": 3,
         "path": "/mongodb"
+      },
+      {
+        "path": "/redis",
+        "title": "Redis"
       },
       {
         "title": "Github",
