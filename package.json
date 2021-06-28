@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "yarn run dev",
-    "dev": "yarn run dumi dev --port=8110"
+    "dev": "yarn run dumi dev --port=8110",
+    "build": "yarn run dumi build"
   },
   "repository": {
     "type": "git",
