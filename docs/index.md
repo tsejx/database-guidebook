@@ -3,10 +3,10 @@ title: Database Guidebook - 📚 Database 知识图谱
 order: 10
 hero:
   title: Database Guidebook
-  desc: 📚 Database 知识图谱
+  desc: 📚 Database 数据库知识图谱
   actions:
     - text: 立即开始
-      link: /mongodb
+      link: /mysql
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
     title: 完整体系

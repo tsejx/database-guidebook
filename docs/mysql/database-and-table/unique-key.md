@@ -1,0 +1,12 @@
+---
+nav:
+  title: MySQL
+  order: 2
+group:
+  title: 数据库和表
+  order: 2
+title: 唯一键
+order: 11
+---
+
+# 唯一键

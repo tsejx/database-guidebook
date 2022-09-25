@@ -6,7 +6,7 @@ group:
   title: 高阶应用
   order: 3
 title: 数据库分片
-order: 5
+order: 100
 ---
 
 # 数据库分片
