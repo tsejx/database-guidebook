@@ -6,7 +6,8 @@
   "scripts": {
     "start": "yarn run dev",
     "dev": "yarn run dumi dev --port=8110",
-    "build": "yarn run dumi build"
+    "build": "yarn run dumi build",
+    "deploy": "bash ./scripts/deploy.sh"
   },
   "repository": {
     "type": "git",
