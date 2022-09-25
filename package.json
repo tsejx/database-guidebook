@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "npm run dumi dev --port=8110",
+    "dev": "dumi dev --port=8110",
     "build": "dumi build",
     "deploy": "bash ./scripts/deploy.sh"
   },
