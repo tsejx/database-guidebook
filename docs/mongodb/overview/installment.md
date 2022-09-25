@@ -1,7 +1,7 @@
 ---
 nav:
   title: MongoDB
-  order: 3
+  order: 4
 group:
   title: 基本概述
   order: 1

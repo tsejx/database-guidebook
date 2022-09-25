@@ -1,7 +1,7 @@
 ---
 nav:
   title: MongoDB
-  order: 3
+  order: 4
 
 title: 配置文件
 order: 98

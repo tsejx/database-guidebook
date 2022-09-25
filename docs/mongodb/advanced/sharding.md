@@ -1,7 +1,7 @@
 ---
 nav:
   title: MongoDB
-  order: 3
+  order: 4
 group:
   title: 高阶应用
   order: 3

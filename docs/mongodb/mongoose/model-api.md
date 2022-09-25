@@ -1,7 +1,7 @@
 ---
 nav:
   title: MongoDB
-  order: 3
+  order: 4
 group:
   title: Mongoose
   order: 10

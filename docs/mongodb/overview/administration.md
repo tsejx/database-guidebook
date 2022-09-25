@@ -1,7 +1,7 @@
 ---
 nav:
   title: MongoDB
-  order: 3
+  order: 4
 
 title: 数据库管理
 order: 10
