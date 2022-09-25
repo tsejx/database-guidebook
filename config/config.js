@@ -5,7 +5,7 @@ const config = {
   base: '/database-guidebook/',
   publicPath: '/database-guidebook/',
   favicon: './favicon.ico',
-  logo: 'http://img.mrsingsing.com/database-guidebook-favicon.png',
+  logo: 'http://img.mrsingsing.com/database-guidebook.png',
   exportStatic: {},
   navs: [
     null,
