@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "yarn run dev",
-    "dev": "yarn run dumi dev --port=8110",
-    "build": "yarn run dumi build",
+    "start": "npm run dev",
+    "dev": "npm run dumi dev --port=8110",
+    "build": "npm run dumi build",
     "deploy": "bash ./scripts/deploy.sh"
   },
   "repository": {
