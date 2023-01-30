@@ -3,8 +3,8 @@ nav:
   title: MySQL
   order: 2
 group:
-  title: 事务与存储引擎
-  order: 8
+  title: 高阶用法
+  order: 5
 title: 数据库事务
 order: 1
 ---

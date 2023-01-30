@@ -148,7 +148,7 @@ CREATE TABLE `testdb`.`user_hobby` (
 - <code>INDEX `fk_user_idx`</code> 设定了在 `user_id` 列上建立索引。
 - <code>CONSTRAINT `fk_user`</code> 设定了一个外键。这个外键将 `user_id` 列引用了 `user` 表的 `user_id` 列
 
-## CREATE TABLE ... LIKE
+### CREATE TABLE ... LIKE
 
 `CREATE TABLE ... LIKE` 语句可以用来克隆另一个表的定义。它以另一个表的定义为基础创建一个新的空表，包含了原表中定义的列属性和索引。
 
@@ -156,7 +156,7 @@ CREATE TABLE `testdb`.`user_hobby` (
 CREATE TABLE <new_table_name> LIKE <original_table_name>;
 ```
 
-## CREATE TABLE ... SELECT
+### CREATE TABLE ... SELECT
 
 `CREATE TABLE ... SELECT` 语句可实现从另一个表创建一个新表。该语句会依据 `SELECT` 子句中的列创建新表，并将 `SELECT` 的结果集插入到新表中。
 
@@ -165,3 +165,15 @@ CREATE TABLE <new_table_name> [AS] SELECT * FROM <original_table_name>;
 ```
 
 `CREATE TABLE ... SELECT` 语句可以用来复制一个表，包含列属性和数据。
+
+## 主键
+
+## 外键
+
+## 自增列
+
+## 生成列
+
+## 唯一键
+
+## NULL 值

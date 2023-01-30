@@ -3,10 +3,10 @@ nav:
   title: MySQL
   order: 2
 group:
-  title: 应用优化
-  order: 9
+  title: 高阶用法
+  order: 5
 title: 索引优化与设计
-order: 1
+order: 20
 ---
 
 # 索引优化与设计

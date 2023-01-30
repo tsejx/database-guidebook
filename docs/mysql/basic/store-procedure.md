@@ -5,8 +5,8 @@ nav:
 group:
   title: 基础用法
   order: 3
-title: 联结
-order: 15
+title: 存储过程
+order: 45
 ---
 
-# 联结
+# 存储过程

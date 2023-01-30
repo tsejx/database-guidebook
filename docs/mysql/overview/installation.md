@@ -3,10 +3,10 @@ nav:
   title: MySQL
   order: 2
 group:
-  title: 数据库管理
-  order: 2
+  title: 概览
+  order: 1
 title: 安装
-order: 1
+order: 2
 ---
 
 # 安装
@@ -50,7 +50,7 @@ mysql_secure_installation
 方便以后每次的开启、停止和重启，就不用像上面命令一样每次都要加路径。
 
 ```bash
-# 打开 .bash_profile 添加 mysql.server 路径 
+# 打开 .bash_profile 添加 mysql.server 路径
 vim ~/.bash_profile
 
 # 添加以下变量：

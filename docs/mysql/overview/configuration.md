@@ -1,4 +1,15 @@
-# 配置文件
+---
+nav:
+  title: MySQL
+  order: 2
+group:
+  title: 概览
+  order: 1
+title: 配置
+order: 4
+---
+
+# 配置
 
 MySQL 配置文件：
 

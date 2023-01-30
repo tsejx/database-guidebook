@@ -5,11 +5,11 @@ nav:
 group:
   title: 概览
   order: 1
-title: 概览
+title: 概述
 order: 1
 ---
 
-# 概览
+# 概述
 
 MySQL 应用广泛，并不是每个人都有条件用上 navicat 的。你需要了解 MySQL 的连接方式和基本的操作，在异常情况下才能游刃有余。
 

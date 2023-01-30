@@ -38,7 +38,7 @@ SELECT DATABASE();
 2. 使用 `STATUS`
 
 ```sql
-STATUS
+STATUS;
 ```
 
 3. 使用 `SHOW TABLES`

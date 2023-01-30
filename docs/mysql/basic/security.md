@@ -5,8 +5,8 @@ nav:
 group:
   title: 基础用法
   order: 3
-title: 联结
-order: 15
+title: 安全管理
+order: 49
 ---
 
-# 联结
+# 安全管理

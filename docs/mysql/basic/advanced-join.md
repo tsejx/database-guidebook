@@ -5,8 +5,8 @@ nav:
 group:
   title: 基础用法
   order: 3
-title: 联结
-order: 15
+title: 高级联结
+order: 16
 ---
 
-# 联结
+# 高级联结

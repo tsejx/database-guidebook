@@ -32,8 +32,8 @@ SELECT name, age FROM students WHERE age = 19;
 
 -- 输出
 name            age
-------------    ---------- 
-Tony            19 
+------------    ----------
+Tony            19
 Iren            19
 Otto            19
 ```
@@ -96,14 +96,17 @@ student_id  age       name
 1           16        Amy
 2           19        Tony
 3           22        Ann
-4           15        Tom 
-5           21        Alan 
+4           15        Tom
+5           21        Alan
 7           23        Yumi
 8           18        Wolf
 ```
 
 > 什么时候使用引号？
-> 如果仔细观察上述 `WHERE` 子句中的条件，会看到有的值括在单引号内，而有的值未括起来。单引号用来限定字符串。如果将值与字符串类型的列进行比较，就需要限定引号。用来与数值列进行比较的值不用引号。
+> 如果仔细观察上述 `WHERE` 子句中的条件，会看到有的值括在单引号内，而有的值未括起来。
+>
+> - 单引号用来限定字符串。如果将值与字符串类型的列进行比较，就需要限定引号
+> - 用来与数值列进行比较的值不用引号
 
 ### 范围值检查
 
@@ -112,27 +115,27 @@ student_id  age       name
 语法：
 
 ```sql
-SELECT <column_name1>, <column_name2> FROM <table_name> WHERE <column_value1> BETWEEN <column_value2>; 
+SELECT <column_name1>, <column_name2> FROM <table_name> WHERE <column_value1> BETWEEN <column_value2>;
 ```
 
 示例：检索年龄在 20 到 22 岁之间的学生
 
 ```sql
-SELECT name, age FROM students WHERE 20 BETWEEN 22; 
+SELECT name, age FROM students WHERE 20 BETWEEN 22;
 
 -- 输出
 student_id  age       name
 ----------  --------  --------
 0           20        Ben
 3           22        Ann
-5           21        Alan 
+5           21        Alan
 ```
 
 使用 `BETWEEN` 操作符，必须指定两个值：低端值和高端值。这两个值必须用 `AND` 关键字分隔。`BETWEEN` 匹配范围中所有的值，包括指定的开始值和结束值。
 
 ### 空值检查
 
-`SELECT` 语句有一个特殊的 `WHERE` 子句，能用于校验俱有 `NULL` 值的列。
+`SELECT` 语句有一个特殊的 `WHERE` 子句——`IS NULL` 子句，能用于校验具有 `NULL` 值的列。
 
 语法：
 

@@ -6,7 +6,7 @@ group:
   title: 基础用法
   order: 3
 title: 插入数据
-order: 18
+order: 30
 ---
 
 # 插入数据
@@ -39,9 +39,9 @@ INSERT INTO students(name, gender) VALUES('Aurelian'， 1);
 示例：插入多条数据
 
 ```sql
-INSERT INTO 
-  students(name, gender, age, height, weight, native_place, birth_date) 
-VALUES 
+INSERT INTO
+  students(name, gender, age, height, weight, native_place, birth_date)
+VALUES
   ('Amy', 0, 27, '167', '93', 'GUANGZHOU', '1994-05-18'),
   ('Tony', 0, 23, '164', '135', 'GUANGZHOU', '1998-09-02'),
   ('Irene', 0, 20, '158', '80', 'GUANGZHOU', '2001-04-12');

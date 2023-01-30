@@ -56,6 +56,14 @@ ALTER TABLE <table_name> MODIFY [COLUMN] <column_definition> [FIRST | AFTER <col
 ALTER TABLE students MODIFY name VARCHAR(25);
 ```
 
+### 修改表名
+
+语法：
+
+```sql
+ALTER TABLE <table_name> RENAME TO <new_table_name>;
+```
+
 ### 添加表字段
 
 语法：
@@ -139,14 +147,6 @@ ALTER TABLE students CHANGE age BIGINT NOT NULL DEFAULT 0;
 ALTER TABLE <table_name> ALTER balance SET DEFAULT 1000;
 
 SHOW COLUMNS FROM <table_name>;
-```
-
-### 修改表名
-
-语法：
-
-```sql
-ALTER TABLE <table_name> RENAME TO <new_table_name>;
 ```
 
 ### 修改表类型

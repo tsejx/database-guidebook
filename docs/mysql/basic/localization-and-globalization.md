@@ -5,8 +5,8 @@ nav:
 group:
   title: 基础用法
   order: 3
-title: 联结
-order: 15
+title: 国际化与本地化
+order: 48
 ---
 
-# 联结
+# 国际化与本地化

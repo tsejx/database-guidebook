@@ -11,7 +11,7 @@ order: 5
 
 # 检索数据
 
-`SELECT` 语句的用途是从一个或多个表中检索信息。
+SQL 语句是由几个简单的英文单词构成的。这些单词称为关键字，每个 SQL 语句都是由一个或多个关键字构成的。而 `SELECT` 语句就是最常用的 SQL 语句。`SELECT` 语句的用途是从一个或多个表中检索信息。
 
 - 想选择什么
 - 从什么地方选择
@@ -35,9 +35,9 @@ SELECT name FROM students;
 
 ## 检索多个列
 
-检索多个列，仍然使用相同的 `SELECT` 语句。唯一不同的是必须在 `SELECT` 关键字后给出多个列名，列名之间必须以逗号分隔。
+检索多个列，仍然使用相同的 `SELECT` 语句。唯一不同的是必须在 `SELECT` 关键字后给出多个列名，列名之间必须以 **逗号** 分隔。
 
-> **提示**：在最后一个列名后不雅加逗号，否则会出现错误。
+> **提示**：在最后一个列名后不能加逗号，否则会出现错误。
 
 语法：
 
@@ -51,7 +51,7 @@ SELECT <column_name1>, <column_name2>, <column_name3>, ... FROM <table_name>;
 SELECT name, age, gender FROM students;
 ```
 
-### 检索所有列
+## 检索所有列
 
 在实际列名的位置使用星号（`*`）通配符可以检索到所有的列而不必逐个列出它们。
 
@@ -63,32 +63,11 @@ SELECT * FROM <table_name>
 
 返回的列的顺序一般是列在表定义中出现的物理顺序，但并不总是如此。不过，SQL 数据很少这样（通常，数据返回给应用程序，根据需要进行格式化，再表示出来）。因此，这不应该造成什么问题。
 
-### 检索不同的值
+## 检索不同的行
 
-语法：
+`SELECT` 返回所有匹配的行，如果不想每个值每次都出现，应该如何检索出不同（唯一）的值？
 
-```sql
-SELECT <column_name> FROM <table_name>
-```
-
-示例：检索 `students` 表中所有学生的籍贯
-
-```sql
-SELECT native_place FROM students;
-
--- 输出
--- GUANGZHOU 
--- HUNAN 
--- GUANGZHOU 
--- GUANGXI 
--- BEIJING 
--- GUANGZHOU 
--- GUANGZHOU 
--- HUNAN 
--- GUANGXI
-```
-
-`SELECT` 语句返回 9 行（即表中只有四种籍贯地），因为 `students` 表汇中有 9 个学生。那么如何检索出不同的值？
+解决办法就是使用 `DISTINCT`关键字，此关键字指示 MySQL 只返回不同的值。
 
 ```sql
 SELECT DISTINCT native_place FROM students;
@@ -98,16 +77,17 @@ SELECT DISTINCT native_place FROM students;
 
 ```sql
 -- 输出
--- GUANGZHOU 
--- HUNAN 
+-- GUANGZHOU
+-- HUNAN
 -- GUANGXI
 -- BEIJING
 ```
 
-> 注意：不能部分使用 `DISTINCT`
-> `DISTINCT` 关键字作用于所有的列，不仅仅是跟在其后的那一列。例如，你指定 `SELECT DISTINCT native_place, name`，因为指定的两列不完全相同，所以所有的行都会被检索出来。
+> **注意**：`DISTINCT` 关键字作用于所有的列，不仅仅是跟在其后的那一列。例如，你指定 `SELECT DISTINCT native_place, name`，因为指定的两列不完全相同，所以所有的行都会被检索出来。
 
-### 限制结果
+## 限制结果
+
+`SELECT` 语句返回所有匹配的航，它们可能是指定表中的每个行。为了返回第一行或前几行，可使用 `LIMIT` 子句。
 
 语法：
 
@@ -136,7 +116,7 @@ SELECT name FROM students LIMIT 5 OFFSET 5;
 - `LIMIT` 指定返回的行数
 - `OFFSET` 指定从哪儿开始
 
-### 使用注释
+## 注释
 
 示例：
 

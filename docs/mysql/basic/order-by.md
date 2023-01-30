@@ -11,7 +11,7 @@ order: 6
 
 # 排序数据
 
-本节讲解如何使用 `SELECT` 语句的 `ORDER BY` 子句，根据需要排序检索出的数据。
+本节讲解如何使用 `SELECT` 语句的 `ORDER BY` 子句（clause），根据需要排序检索出的数据。
 
 ## 排序数据
 
@@ -36,7 +36,7 @@ SELECT name FROM students ORDER BY name;
 
 ## 按多个列排序
 
-经常需要按不止一个列进行数据排序。
+经常需要按不止一个列进行数据排序。例如，如果要显示雇员名单，希望按姓和名排序（首先按姓排序，然后在每个姓中再按名排序）。
 
 语法：
 
@@ -71,9 +71,9 @@ student_id  age       name
 1           16        Amy
 2           19        Tony
 3           22        Ann
-4           15        Tom 
-5           21        Alan 
-6           19        Irene 
+4           15        Tom
+5           21        Alan
+6           19        Irene
 7           23        Yumi
 8           18        Wolf
 ```
@@ -102,13 +102,13 @@ student_id  age       name
 ----------  --------  --------
 7           23        Yumi
 3           22        Ann
-5           21        Alan 
+5           21        Alan
 0           20        Ben
-6           19        Irene 
+6           19        Irene
 2           19        Tony
 8           18        Wolf
 1           16        Amy
-4           15        Tom 
+4           15        Tom
 ```
 
 如果打算用多个列排序，应该再加上学生名字：
@@ -122,13 +122,13 @@ student_id  age       name
 ----------  --------  --------
 7           23        Yumi
 3           22        Ann
-5           21        Alan 
+5           21        Alan
 0           20        Ben
-6           19        Irene 
+6           19        Irene
 2           19        Tony
 8           18        Wolf
 1           16        Amy
-4           15        Tom 
+4           15        Tom
 ```
 
 `DESC` 关键字只应用到直接位于其前面的列名。在上例中，只对 `age` 列指定 `DESC`，对 `name` 列不指定。因此，`age` 列以降序排序，而 `name` 列（在每个年龄层内）仍然按标准的升序排序。
@@ -140,3 +140,5 @@ student_id  age       name
 `DESC` 是 `DESCENGING` 的缩写，与之相对的是 `ASC`（或 `ASCENDING`），在升序排序时可以指定它。但因为升序是默认的，如果既不指定 `ASC` 也不指定 `DESC`，则假定为 `ASC`。
 
 > 在字典（dictionary）排序顺序中，A 被视为与 a 相同，这是大多数数据库管理系统的默认行为。但是，许多 DBMS 允许数据库管理员在需要时改变这种行为（如果你的数据库包含大量外语字符，可能必须这样做）。
+
+> 在给出 `ORDER BY` 子句时，应保证它位于 `FROM` 子句之后。如果使用了 `LIMIT`，它必须位于 `ORDER BY` 之后，。使用子句的次序不对将产生错误消息。

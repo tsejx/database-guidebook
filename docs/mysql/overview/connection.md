@@ -3,8 +3,8 @@ nav:
   title: MySQL
   order: 2
 group:
-  title: 数据库管理
-  order: 2
+  title: 概览
+  order: 1
 title: 连接
 order: 3
 ---
