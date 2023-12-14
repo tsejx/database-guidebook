@@ -25,5 +25,8 @@
     "lint-md": "^0.2.0",
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.20.0"
+  },
+  "engines": {
+    "node": ">=16.19.0"
   }
 }
