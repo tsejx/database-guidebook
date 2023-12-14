@@ -6,53 +6,10 @@ group:
   title: 基础语法
   order: 2
 title: 连接表
-order: 10
+order: 11
 ---
 
 # 连接表
-
-## 别名 AS
-
-通过别名表示列名的缩写或复杂的表达式，能够 SQL 语句可读性提高。
-
-语法：
-
-```sql
-SELECT
-  [column1 | expression] AS descriptive_name
-FROm
-  <table_name>;
-```
-
-要给列添加别名，可使用 `AS` 关键词后跟别名。如果别名包含空格，则必须饮用以下内容：
-
-```sql
-SELECT
-  [column1 | expression] AS `descriptive name`
-FROM
-  <table_name>;
-```
-
-因为 `AS` 关键字是可选的，可以在语句中省略它。请注意，还可以在表达式上使用别名。
-
-示例：查询客户表（customers）和订单表（orders）表中选择客户名称和订单数量。
-
-```sql
-SELECT
-  customer_name,
-  COUNT(o..order_number) total
-FROM
-  customers c
-    INNER JOIN orders o ON c.customer_number = o.customer_number
-GROUP BY
-  customer_name
-HAVING
-  total >= 5
-ORDER BY
-  total DESC;
-```
-
-上面的查询从客户表（customers）和订单表（orders）中选择的客户名称和订单数量。它使用 `c` 作为 `customers` 表的别名，`o` 作为 `orders` 表的表别名。`customers` 和 `orders` 表中的列通过表别名 `c` 和 `o` 引用。
 
 ## 内部联结 INNER JOIN
 

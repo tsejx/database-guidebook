@@ -5,11 +5,11 @@ nav:
 group:
   title: 基础语法
   order: 2
-title: 数字函数
-order: 18
+title: 算术函数
+order: 16
 ---
 
-# 数字函数
+# 算术函数
 
 常用数值处理函数
 

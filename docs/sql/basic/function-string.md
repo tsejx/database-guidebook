@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 2
 title: 字符串函数
-order: 16
+order: 17
 ---
 
 # 字符串函数

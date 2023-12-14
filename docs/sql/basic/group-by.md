@@ -6,24 +6,30 @@ group:
   title: 基础语法
   order: 2
 title: 分组数据
-order: 11
+order: 6
 ---
 
 # 分组数据
 
 ## 创建分组
 
+`GROUP BY` 语句能根据一个或多个列对结果集进行分组。
+
 语法：
 
 ```sql
 SELECT
-  <column_name>,
-  function(<column_name>),
+  <expression1>, -- 指定包含在聚合函数中但必须添加到的表达式
+  <expression2>,
   ...
+  <expressionN>
 FROM
   <table_name>
 GROUP BY
-  <column_name>;
+  <expression1>,
+  <expression2>,
+  ...
+  <expressionN>,
 ```
 
 示例：统计不同籍贯的学生数量
@@ -46,13 +52,15 @@ BEIJING       1
 HUNAN         2
 ```
 
-以上 `SELECT` 语句指定了两个列：`native_place` 学生的籍贯，`num_stus` 为计算字段（用 `COUNT(*)` 函数建立）。
+以上 `SELECT` 语句指定了两个列：`native_place` 学生的籍贯，`num_stus` 为计算字段（通过 `COUNT(*)` 函数建立）。
 
 因为使用了 `GROUP BY`，就不必指定要计算和估值的每个组了。系统会自动完成。`GROUP BY` 子句指示了 DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。
 
 ## 过滤分组
 
-`HAVING` 子句用于过滤分组（与 `WHERE` 子句的差别在于 `WHERE` 用于过滤行）。
+`HAVING` 子句用于过滤分组（与 `WHERE` 子句的差别在于 `WHERE` 用于过滤行），且总是放在 `GROUP BY` 之后。
+
+示例一：根据学生学号分组，并返回数学分数高于 80 分的那些学生学号
 
 ```sql
 SELECT
@@ -70,7 +78,21 @@ HAVING
 
 在这里，`WHERE` 子句在这里不起作用，因为过滤是基于分组聚集值，而不是特定行的值。
 
-## 分组和排序
+示例二：返回编号和总成本小于 500 的记录
+
+```sql
+SELECT
+  id,
+  total_cost
+FROM
+  orders
+GROUP BY
+  id
+HAVING
+  SUM(total_cost) < 500;
+```
+
+## 分组和排序 ORDER BY
 
 | ORDER BY                                     | GROUP BY                                                 |
 | :------------------------------------------- | :------------------------------------------------------- |
@@ -83,10 +105,15 @@ HAVING
 示例：检索包含三个或更多物品的订单号和订购物品的数量
 
 ```sql
-SELECT order_num, COUNT(*) AS items
-FROM OrderItems
-GROUP BY order_num
-HAVING COUNT(*) >= 3;
+SELECT
+  order_num,
+  COUNT(*) AS items
+FROM
+  OrderItems
+GROUP BY
+  order_num
+HAVING
+  COUNT(*) >= 3;
 
 -- 输出
 order_num items
@@ -100,11 +127,19 @@ order_num items
 要按订购物品的数目排序输出，需要添加 `ORDER BY` 子句。
 
 ```sql
-SELECT order_num, COUNT(*) AS items
-FROM OrderItems
-GROUP BY order_num
-HAVING COUNT(*) >= 3
-ORDER BY items, order_num;
+SELECT
+  order_num,
+  COUNT(*) AS items
+FROM
+  OrderItems
+GROUP BY
+  order_num
+HAVING
+  COUNT(*) >= 3
+ORDER BY
+  items,
+  order_num;
+
 order_num items
 --------- -----
 20006     3
@@ -114,16 +149,3 @@ order_num items
 ```
 
 在这个例子中，使用 `GROUP BY` 子句按订单号（`order_num` 列）分组数据，以便 `COUNT(*)` 函数能够返回每个订单中的物品数目。`HAVING` 子句过滤数据，使得只返回包含三个或更多物品的订单。最后，用 `ORDER BY` 子句排序输出。
-
-## SELECT 子句顺序
-
-`SELECT` 子句及其顺序
-
-| 子句       | 说明               | 是否必须使用           |
-| :--------- | :----------------- | :--------------------- |
-| `SELECT`   | 要返回的列或表达式 | 是                     |
-| `FROM`     | 从中检索数据的表   | 仅在从表选择数据时使用 |
-| `WHERE`    | 行级过滤           | 否                     |
-| `GROUP BY` | 分组说明           | 仅在按组计算聚集时使用 |
-| `HAVING`   | 组级过滤           | 否                     |
-| `ORDER BY` | 输出排序顺序       | 否                     |

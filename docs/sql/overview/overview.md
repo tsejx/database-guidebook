@@ -11,102 +11,83 @@ order: 1
 
 # 概述
 
-MySQL 应用广泛，并不是每个人都有条件用上 navicat 的。你需要了解 MySQL 的连接方式和基本的操作，在异常情况下才能游刃有余。
+当谈到数据库时，SQL（Structured Query Language）是一种不可或缺的语言，用于管理和操作关系型数据库系统。SQL提供了一种结构化的方式，使用户能够定义、查询和操作数据库中的数据。无论是初学者还是经验丰富的数据库专业人员，都可以通过SQL有效地与数据库交互。
 
-```bash
-# 在命令行工具汇总执行以下命令登陆 MySQL 客户端
-mysql -u root -p -h 192.168.1.2
+SQL的核心功能包括：
+
+1. **数据查询（SELECT）**： SQL允许用户从数据库中检索数据。通过简单的查询语句，你可以选择特定的列，过滤行，甚至将多个表联接在一起，以获得所需的结果。
+
+```sql
+SELECT column1, column2
+FROM table
+WHERE condition;
 ```
 
-```bash
-# 查看操作系统版本
-sudo lsb_release -a
+2. **数据操作（INSERT、UPDATE、DELETE）**： SQL提供了插入、更新和删除数据的语句，使用户能够有效地修改数据库中的信息。
+
+```sql
+INSERT INTO table (column1, column2) VALUES (value1, value2);
+
+UPDATE table SET column1 = value1 WHERE condition;
+
+DELETE FROM table WHERE condition;
 ```
 
-```bash
-# 查看本机 IP
-ipconfig
+3. **数据定义（CREATE、ALTER、DROP）**： 使用这些语句，用户可以定义数据库、表格和其他数据库对象的结构，以及对其进行修改或删除。
 
-# 查看本机端口
-netstat -ano
+```sql
+CREATE TABLE table (
+  column1 datatype,
+  column2 datatype
+);
+
+ALTER TABLE table ADD column datatype;
+
+DROP TABLE table;
 ```
+
+4. **数据控制（GRANT、REVOKE）**： SQL支持对数据库中的对象进行访问控制，通过授予或撤销权限，确保数据的安全性和完整性。
+
+```sql
+GRANT permission ON object TO user;
+
+REVOKE permission ON object FROM user;
+```
+
+总体而言，SQL是一种强大的语言，可用于执行广泛的数据库操作，无论是从事基本的数据查询还是进行复杂的数据库管理任务。通过深入了解SQL，你将能够更好地理解和利用数据库技术，从而有效地组织和处理大量的数据。
 
 ## 查询语言分类
 
-- 数据定义语言（DDL，Data Definition Language）：用来定义数据库对象，数据库、表、列
-- 数据操作语言（DML，Data Manipulation Language）：用来对数据库中表的记录进行更新。关键字，insert、update、delete 等
-- 数据控制语言（DCL，Data Control Language）：用来定义数据库访问权限和安全级别，创建用户等，grant 等
-- 数据查询语言（DQL，Data Query Language）：用来查询数据库中表的记录，关键字：select from where 等
+查询语言按照其用途和数据存储模型的不同，可以分为不同的类别。以下是一些常见的查询语言分类：
 
-## 目录
+1. 关系型数据库查询语言：
 
-- 查询数据
-  - SELECT
-  - SELECT DISTINCT
-- 过滤数据
-  - WHERE
-  - AND
-  - OR
-  - IN
-  - BETWEEN
-  - LIKE
-  - LIMIT
-  - IS NULL
-- 排序数据
-  - ORDER BY
-  - 使用 ORDER BY 子句进行自然排序
-- 连续表
-  - MySQL 别名
-  - INNER JOIN
-  - LEFT JOIN
-  - CROSS JOIN
-  - 自连接
-- 分组数据
-  - GROUP BY
-  - HAVING
-- MySQL 子查询、派生表和通用表达式
-  - MySQL 子查询
-  - MySQL 派生表
-  - MySQL 通用表达式
-  - 递归 CTE
-- SET 操作符
-  - UNION 和 UNION ALL
-  - INTERSECT 模拟
-- 修改数据
-  - INSERT
-  - INSERT IGNORE
-  - UPDATE
-  - UPDATE JOIN
-  - DELETE
-  - DELETE CASCADE
-  - DELETE JOIN
-  - DELETE JOIN
-  - REPLACE
-  - PREPARE
-- MySQL 事务
-  - MySQL 事务
-  - MySQL 表锁定
-- 管理
-  - 数据库管理
-  - 表类型
-  - CREATE TABLE
-  - ALTER TABLE
-  - 重命名
-  - 删除列
-  - 新增列
-  - 删除表
-  - 临时表
-  - TRUNCATE TABLE
-- 索引
-- 数据类型
-- 约束
-  - NOT NULL
-  - 主键约束
-  - 外键约束
-  - UNIQUE 约束
-  - CHECK 约束
-- 全球化
-- 导入和导出
+   - SQL (Structured Query Language): SQL是最常见和广泛使用的关系型数据库查询语言。它支持数据的查询、插入、更新和删除，以及数据库结构的定义和修改。SQL分为数据查询语言（DQL）和数据操作语言（DML）等几种子集。
+
+2. 非关系型数据库查询语言：
+
+   - NoSQL查询语言： 不同类型的 NoSQL 数据库（例如MongoDB、Cassandra、Redis等）使用各自的查询语言或 API。这些语言通常针对特定数据库的数据模型和存储方式进行了优化。
+
+3. 图数据库查询语言：
+
+   - Cypher: 用于图数据库（如Neo4j）的查询语言，专门设计用于在图形结构中进行模式匹配和数据检索。
+
+4. XML查询语言：
+
+   - XQuery: 用于在XML文档中查询和检索数据的查询语言，支持对 XML 文档进行类似 SQL 的查询操作。
+
+5. 全文搜索查询语言：
+
+   - SQL for Full-Text Search: 一些数据库系统提供了专门用于全文搜索的查询语言，使用户能够更有效地搜索文本数据。
+
+6. 面向对象数据库查询语言：
+
+   - OQL (Object Query Language): 面向对象数据库系统使用OQL来查询和操作对象数据库中的数据。
+
+7. 数据仓库查询语言：
+
+   - MDX (Multidimensional Expressions): 用于OLAP（联机分析处理）系统中的数据仓库查询语言，主要用于多维数据分析。
+这些是一些常见的查询语言分类，每种语言都有其独特的特点和适用场景。选择合适的查询语言通常取决于你处理的数据类型、数据库系统以及具体的查询需求。
 
 ## 参考资料
 

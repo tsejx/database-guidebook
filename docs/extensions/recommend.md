@@ -15,12 +15,13 @@ order: 1
 
 - [MySQL - mysql.com](https://www.mysql.com/)
 - [MySQL 教程](https://www.runoob.com/mysql/mysql-tutorial.html)
+- [数据库教程 MySQL 教程](https://www.sjkjc.com/mysql/)
 
 ## 书籍推荐
 
-- 《MySQL必知必会》
-- 《SQL必知必会》
-- 《SQL基础教程》
+- 《MySQL 必知必会》
+- 《SQL 必知必会》
+- 《SQL 基础教程》
 
 ## 教程视频
 

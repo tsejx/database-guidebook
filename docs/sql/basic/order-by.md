@@ -6,15 +6,16 @@ group:
   title: 基础语法
   order: 2
 title: 排序数据
-order: 6
+order: 7
 ---
 
 # 排序数据
 
-当使用 `SELECT` 语句查询表中的数据时，结果集不按任何顺序进行排序。要对结果集进行排序，需要使用 `ORDER BY` 子句。`ORDER BY` 子句允许：
+当使用 `SELECT` 语句查询表中的数据时，结果集不按任何顺序进行排序。要对结果集进行排序，需要使用 `ORDER BY` 子句。
 
-- 对单个列或多个列排序结果集
-- 按升序或降序对不同列的结果集进行排序
+`ORDER BY` 关键字用于对结果集按照一个列或多个列进行排序。
+
+`ORDER BY` 关键字默认按照升序对记录进行排序。如果需要按照降序对记录进行排序，您可以使用 `DESC` 关键字。
 
 ## 排序数据
 
@@ -30,33 +31,58 @@ ORDER BY
   <column2_name> [ASC|DESC];
 ```
 
-🌰 示例：
+🌰 示例：检索学生表并根据学生名进行默认排序
 
 ```sql
-SELECT name FROM students ORDER BY name;
+SELECT
+  name
+FROM
+  students
+ORDER BY
+  name;
 ```
 
-其实，检索出的数据并不是随机显示的。如果不排序，数据一般将以它在地层表中出现的顺序显示，这有可能是数据最初添加到表中的顺序。但是，如果数据随后进行过更新或删除，那么这个顺序将会受到 DBMS 重用回收存储空间的方式的影响。因此，如果不明确控制的话，则最终的结果不能（也不应该）依赖该排序顺序。
+其实，检索出的数据并不是随机显示的。如果不排序，数据一般将以它在底层表中出现的顺序显示，这有可能是数据最初添加到表中的顺序。但是，如果数据随后进行过更新或删除，那么这个顺序将会受到 DBMS 重用回收存储空间的方式的影响。因此，如果不明确控制的话，则最终的结果不能（也不应该）依赖该排序顺序。
 
 注意：
 
-1. 在指定一条 `ORDER BY` 子句时，应该保证它是 `SELECT` 语句中最后一条子句。如果它不是最后的子句，将会出现错误消息。
-2. 通常，`ORDER BY` 子句中使用的列将是为显示而选择的列。但是实际上并不一定要这样，用非检索的列排序数据是完全合法的。
+1. 排序的列名：`ORDER BY` 后面可以有一个或多个列名，如果是多个列名进行排序，会按照后面第一个列先进行排序，当第一列的值相同的时候，再按照第二列进行排序，以此类推
+2. 非选择列排序：`ORDER BY` 可以使用非选择列（也就是没有 `SELECT` 的列），所以使用
+3. `ORDER BY` 的位置：`ORDER BY` 通常位于 `SELECT` 语句的最后一条子句，否则会报错
 
 ## 按多个列排序
 
-经常需要按不止一个列进行数据排序。例如，如果要显示雇员名单，希望按姓和名排序（首先按姓排序，然后在每个姓中再按名排序）。
+经常需要按不止一个列进行数据排序。
+
+例如，如果要显示雇员名单，希望按姓和名排序（首先按姓排序，然后在每个姓中再按名排序）。
 
 语法：
 
 ```sql
-SELECT <column_name1>, <column_name2>, ...  FROM <table_name> ORDER BY <column_name1>, <column_name2>, ...;
+SELECT
+  <column_name1>,
+  <column_name2>,
+  ...
+FROM
+  <table_name>
+ORDER BY
+  <column_name1>,
+  <column_name2>,
+  ...;
 ```
 
 🌰 示例：
 
 ```sql
-SELECT student_id, name, age FROM students ORDER BY age, name;
+SELECT
+  student_id,
+  name,
+  age
+FROM
+  students
+ORDER BY
+  age,
+  name;
 ```
 
 对于上述例子，仅在多个行具有相同 `age` 值时才对产品按 `name` 进行排序。如果 `age` 列中所有的值都是唯一的，则不会按 `name` 排序。
@@ -65,10 +91,18 @@ SELECT student_id, name, age FROM students ORDER BY age, name;
 
 除了能用列名指出排序顺序外，`ORDER BY` 还支持按相对列位置进行排序。
 
-🌰 ：
+🌰 示例：
 
 ```sql
-SELECT student_id, age, name FROM students ORDER BY 2, 3;
+SELECT
+  student_id,
+  age,
+  name
+FROM
+  students
+ORDER BY
+  2,
+  3;
 ```
 
 输出：
@@ -98,13 +132,28 @@ student_id  age       name
 语法：
 
 ```sql
-SELECT <column_name1>, <column_name2>, <column_name3>, ... FROM <table_name> ORDER BY <column_name> DESC;
+SELECT
+  <column_name1>,
+  <column_name2>,
+  <column_name3>,
+  ...
+FROM
+  <table_name>
+ORDER BY
+  <column_name> [ASC|DESC];
 ```
 
 🌰 示例：以年龄来排序学生（最老的排在最前面）
 
 ```sql
-SELECT student_id, age, name FROM students ORDER BY age DESC;
+SELECT
+  student_id,
+  age,
+  name
+FROM
+  students
+ORDER BY
+  age DESC;
 
 -- 输出
 student_id  age       name
@@ -123,7 +172,15 @@ student_id  age       name
 如果打算用多个列排序，应该再加上学生名字：
 
 ```sql
-SELECT student_id, age, name FROM students ORDER BY age DESC, name;
+SELECT
+  student_id,
+  age,
+  name
+FROM
+  students
+ORDER BY
+  age DESC,
+  name;
 
 -- 输出
 
@@ -140,7 +197,7 @@ student_id  age       name
 4           15        Tom
 ```
 
-`DESC` 关键字只应用到直接位于其前面的列名。在上例中，只对 `age` 列指定 `DESC`，对 `name` 列不指定。因此，`age` 列以降序排序，而 `name` 列（在每个年龄层内）仍然按标准的升序排序。
+`DESC` 关键字只应用到直接位于其前面的列名。在上例中，只对 `age` 列指定 `DESC`，对 `name` 列不指定排序方式。因此，`age` 列以降序排序，而 `name` 列（在每个年龄层内）仍然按标准的升序排序。
 
 注意：
 
@@ -156,7 +213,7 @@ student_id  age       name
 
 `ORDER BY` 子句允许使用 `FIELD()` 函数为列中的值定义自己的自定义排序顺序。
 
-例如，如果需要按以下顺序基于以下状态的值对订单进行排序：
+例如，如果需要按以下顺序基于 _以下状态的值_ 对订单进行排序：
 
 - `In Process`
 - `On Hold`

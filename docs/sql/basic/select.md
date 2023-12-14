@@ -63,23 +63,103 @@ SELECT * FROM <table_name>
 
 返回的列的顺序一般是列在表定义中出现的物理顺序，但并不总是如此。不过，SQL 数据很少这样（通常，数据返回给应用程序，根据需要进行格式化，再表示出来）。因此，这不应该造成什么问题。
 
-## 检索不同的行 DISTINCT
+缺点：
 
-`SELECT` 返回所有匹配的行，如果不想每个值每次都出现，应该如何检索出不同（唯一）的值？
+- 效率低
+- 可读性差
 
-在表中，一个列可能会包含多个重复值，有时您也许希望仅仅列出不同（distinct）的值。`DISTINCT` 关键词用于返回唯一不同的值。
+在实际开发中不建议，想在命令行窗口快速查看全表数据可以采用这种方式。
+
+## 起别名 AS
+
+通过别名表示列名的缩写或复杂的表达式，能够 SQL 语句可读性提高。
 
 语法：
 
 ```sql
-SELECT DISTINCT <column_name1>, <column_name2>, ...
+SELECT
+  [column1 | expression] AS descriptive_name
+FROm
+  <table_name>;
+```
+
+要给列添加别名，可使用 `AS` 关键词后跟别名。如果别名包含空格，则必须通过反引包裹别名：
+
+```sql
+SELECT
+  [column1 | expression] AS `descriptive name`
+FROM
+  <table_name>;
+```
+
+因为 `AS` 关键字是可选的，可以在语句中省略它。请注意，还可以在 **表达式** 上使用别名。
+
+示例：查询客户表（customers）和订单表（orders）表中选择客户名称和订单数量。
+
+```sql
+SELECT
+  customer_name,
+  COUNT(o..order_number) total
+FROM
+  customers c
+    INNER JOIN orders o ON c.customer_number = o.customer_number
+GROUP BY
+  customer_name
+HAVING
+  total >= 5
+ORDER BY
+  total DESC;
+```
+
+上面的查询从客户表（customers）和订单表（orders）中选择的客户名称和订单数量。它使用 `c` 作为 `customers` 表的别名，`o` 作为 `orders` 表的表别名。`customers` 和 `orders` 表中的列通过表别名 `c` 和 `o` 引用。
+
+## 查询常数
+
+`SELECT` 语句还可以对常数进行查询，实际上就是对查询结果增加固定的常数列，该列是由我们指定的，而不是数据表中动态获取的。
+
+🌰 例子：对 students 表进行学生名查询，同时新增一列字段 school，这个字段固定为 `清华大学`
+
+```sql
+SELECT
+  name,
+  '清华大学' as school
+FROM
+  students;
+
+-- 查询结果
++----------+------------+
+| name     | school     |
++----------+------------+
+| 张三      | '清华大学'  |
+| 李四      | '清华大学'  |
+| 王五      | '清华大学'  |
++----------+------------+
+```
+
+需要说明的是，如果常数是个字符串，那么使用单引号（`''`）就非常重要了，比如 `'清华大学'`。单引号说明引号中的字符串是个常数，否则 SQL 会把 `清华大学` 当成列名进行查询，但实际上数据表里没有这个列名，就会引起错误。如果常数是英文字母，比如 `'THU'` 也需要加引号。如果常数是个数字，就可以直接写数字，不需要单引号，
+
+## 去除重复行 DISTINCT
+
+`SELECT` 返回所有匹配的行，如果不想每个值每次都出现，应该如何检索出不同（唯一）的值？
+
+使用关键词 `DISTINCT` 能在检索过程中返回唯一不同的值。
+
+语法：
+
+```sql
+SELECT
+  DISTINCT <column_name1>,
+  <column_name2>, ...
 FROM <table_name>
 ```
 
 使用示例：
 
 ```sql
-SELECT DISTINCT native_place FROM students;
+SELECT
+  DISTINCT native_place,
+  name
+FROM students;
 ```
 
 分析：`SELECT DISTINCT native_place` 告诉 DBMS 只返回不同（具有唯一性）的 `native_place` 行，所以正如下面的输出，只有 4 行。如果使用 `DISTINCT` 关键字，它必须直接放到列名的前面。
@@ -92,11 +172,14 @@ SELECT DISTINCT native_place FROM students;
 -- BEIJING
 ```
 
-> **注意**：`DISTINCT` 关键字作用于所有的列，不仅仅是跟在其后的那一列。例如，你指定 `SELECT DISTINCT native_place, name`，因为指定的两列不完全相同，所以所有的行都会被检索出来。
+注意：
 
-## 限制结果 LIMIT
+1. `DISTINCT` 需要放到所有列名的前面，如果写成 `SELECT name, DISTINT native_place FROM students` 会报错
+2. `DISTINCT` 其实是对后面所有列名的组合进行去重
 
-`SELECT` 语句返回所有匹配的航，它们可能是指定表中的每个行。为了返回第一行或前几行，可使用 `LIMIT` 子句。
+## 限制返回结果的数量 LIMIT
+
+`SELECT` 语句返回所有匹配的行，它们可能是指定表中的每个行。为了返回第一行或前几行，可使用 `LIMIT` 子句。
 
 语法：
 
@@ -131,10 +214,44 @@ SELECT name FROM students LIMIT 5 OFFSET 5;
 
 ```sql
 -- 前 5 行
-select top 5 * from table_name;
+SELECT TOP 5 * FROM table_name;
 
 -- 后 5 行
-select top 5 * from table_name order by in desc; -- desc 表示降序排列 asc 表示升序
+SELECT TOP 5 * FROM table_name ORDER BY IN DESC; -- desc 表示降序排列 asc 表示升序
+```
+
+## SELECT 的执行顺序
+
+`SELECT` 子句及其顺序
+
+| 序号 | 子句       | 说明               | 是否必须使用           |
+| :--- | :--------- | :----------------- | :--------------------- |
+| 1    | `SELECT`   | 要返回的列或表达式 | 是                     |
+| 2    | `FROM`     | 从中检索数据的表   | 仅在从表选择数据时使用 |
+| 3    | `WHERE`    | 行级过滤           | 否                     |
+| 4    | `GROUP BY` | 分组说明           | 仅在按组计算聚集时使用 |
+| 5    | `HAVING`   | 组级过滤           | 否                     |
+| 6    | `ORDER BY` | 输出排序顺序       | 否                     |
+
+🌰 例子：
+
+```sql
+SELECT
+  DISTINCT player_id,
+  player_name,
+  count(*) AS num -- 顺序 5
+FROM
+  player JOIN team ON player.team_id = team.team_id --顺序 1
+WHERE
+  height > 1.80 -- 顺序 2
+GROUP BY
+  player.team_id -- 顺序 3
+HAVING
+  num > 2 -- 顺序 4
+ORDER BY
+  nun DESC -- 顺序6
+LIMIT
+  2 -- 顺序7
 ```
 
 ## 注释
