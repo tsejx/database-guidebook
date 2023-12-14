@@ -10,7 +10,7 @@ order: 1
 ---
 
 
-# Radis
+# Redis
 
 ```bash
 # 启动
