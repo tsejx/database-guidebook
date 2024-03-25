@@ -5,8 +5,8 @@ nav:
 group:
   title: 数据库和表
   order: 2
-title: 生成列
-order: 14
+title: 锁表
+order: 18
 ---
 
-# 生成列
+# 锁表

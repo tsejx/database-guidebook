@@ -4,7 +4,7 @@ nav:
   order: 2
 group:
   title: 基础语法
-  order: 2
+  order: 3
 title: 连接表
 order: 11
 ---
@@ -72,23 +72,23 @@ FROM
 
 表：depart
 
-| id  | title |
-| :-- | :---- |
-| 1   | 开发  |
-| 2   | 运营  |
-| 3   | 销售  |
+| id   | title |
+| :--- | :---- |
+| 1    | 开发  |
+| 2    | 运营  |
+| 3    | 销售  |
 
 表：info
 
-| id  | name  | email           | age | depart_id |
-| :-- | :---- | :-------------- | :-- | :-------- |
-| 1   | Ben   | ben@gmail.com   | 19  | 1         |
-| 2   | Ami   | ami@gmail.com   | 49  | 1         |
-| 3   | Tony  | tony@gamil.com  | 9   | 2         |
-| 4   | Katty | katty@gamil.com | 29  | 1         |
-| 5   | Tom   | tom@gamil.com   | 69  | 3         |
-| 6   | Wendy | wendy@gamil.com | 39  | 1         |
-| 7   | Paul  | paul@gamil.com  | 18  | 1         |
+| id   | name  | email           | age  | depart_id |
+| :--- | :---- | :-------------- | :--- | :-------- |
+| 1    | Ben   | ben@gmail.com   | 19   | 1         |
+| 2    | Ami   | ami@gmail.com   | 49   | 1         |
+| 3    | Tony  | tony@gamil.com  | 9    | 2         |
+| 4    | Katty | katty@gamil.com | 29   | 1         |
+| 5    | Tom   | tom@gamil.com   | 69   | 3         |
+| 6    | Wendy | wendy@gamil.com | 39   | 1         |
+| 7    | Paul  | paul@gamil.com  | 18   | 1         |
 
 把所有用户信息和部门名称展示出来：
 

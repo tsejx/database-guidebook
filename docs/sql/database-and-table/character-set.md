@@ -5,8 +5,8 @@ nav:
 group:
   title: 数据库和表
   order: 2
-title: 生成列
-order: 14
+title: 字符集和排序规则
+order: 19
 ---
 
-# 生成列
+# 字符集和排序规则

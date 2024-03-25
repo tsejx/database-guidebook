@@ -4,7 +4,7 @@ nav:
   order: 2
 group:
   title: 数据库和表
-  order: 3
+  order: 2
 title: 选择数据库
 order: 3
 ---
@@ -22,7 +22,7 @@ USE <table_name>
 可以在登录 MySQL 服务器时直接指定要操作的数据库。
 
 ```bash
-mysql -u root -p -D <database_name>
+mysql -u root -p -D db_name
 ```
 
 ## 查看当前数据库

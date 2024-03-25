@@ -4,9 +4,9 @@ nav:
   order: 2
 group:
   title: 数据库和表
-  order: 3
+  order: 2
 title: 外键
-order: 8
+order: 10
 ---
 
 # 外键

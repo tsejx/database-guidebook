@@ -5,8 +5,8 @@ nav:
 group:
   title: 数据库和表
   order: 2
-title: 生成列
-order: 14
+title: CHECK 约束
+order: 17
 ---
 
-# 生成列
+# CHECK 约束

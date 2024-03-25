@@ -4,7 +4,7 @@ nav:
   order: 2
 group:
   title: 基础语法
-  order: 2
+  order: 3
 title: 计算字段
 order: 100
 ---

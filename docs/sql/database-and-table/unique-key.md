@@ -4,9 +4,9 @@ nav:
   order: 2
 group:
   title: 数据库和表
-  order: 3
-title: 清空表
-order: 6
+  order: 2
+title: 唯一列
+order: 15
 ---
 
-# 清空表
+# 唯一列

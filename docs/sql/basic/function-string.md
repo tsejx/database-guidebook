@@ -4,7 +4,7 @@ nav:
   order: 2
 group:
   title: 基础语法
-  order: 2
+  order: 3
 title: 字符串函数
 order: 17
 ---
