@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 3
 title: 集合运算
-order: 13
+order: 17
 ---
 
 # 集合运算

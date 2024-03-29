@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 3
 title: 日期函数
-order: 18
+order: 12
 ---
 
 # 日期函数

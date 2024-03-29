@@ -3,13 +3,13 @@ nav:
   title: SQL
   order: 2
 group:
-  title: 概览
-  order: 1
-title: 日志系统
-order: 50
+  title: 高级用法
+  order: 4
+title: 日志管理
+order: 21
 ---
 
-# 日志系统
+# 日志管理
 
 1. 日志系统
 2. 数据备份

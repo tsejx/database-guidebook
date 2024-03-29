@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 3
 title: 更新和删除数据
-order: 21
+order: 31
 ---
 
 # 更新和删除数据

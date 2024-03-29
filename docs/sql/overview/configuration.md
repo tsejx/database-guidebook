@@ -5,11 +5,11 @@ nav:
 group:
   title: 概览
   order: 1
-title: 配置
+title: 数据库配置
 order: 4
 ---
 
-# 配置
+# 数据库配置
 
 MySQL 配置文件：
 

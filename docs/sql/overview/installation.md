@@ -5,11 +5,11 @@ nav:
 group:
   title: 概览
   order: 1
-title: 安装
+title: 数据库安装
 order: 2
 ---
 
-# 安装
+# 数据库安装
 
 ## 安装
 

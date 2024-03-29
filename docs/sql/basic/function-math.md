@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 3
 title: 算术函数
-order: 16
+order: 10
 ---
 
 # 算术函数

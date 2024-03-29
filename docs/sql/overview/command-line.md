@@ -5,11 +5,11 @@ nav:
 group:
   title: 概览
   order: 1
-title: 命令行
-order: 101
+title: 命令行工具
+order: 10
 ---
 
-# 命令行
+# 命令行工具
 
 命令行参数
 

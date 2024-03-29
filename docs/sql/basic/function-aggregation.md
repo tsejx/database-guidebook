@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 3
 title: 聚合函数
-order: 15
+order: 9
 ---
 
 # 聚合函数

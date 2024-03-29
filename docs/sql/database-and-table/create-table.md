@@ -6,7 +6,7 @@ group:
   title: 数据库和表
   order: 2
 title: 创建表
-order: 4
+order: 11
 ---
 
 # 创建表

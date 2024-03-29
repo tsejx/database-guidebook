@@ -6,7 +6,7 @@ group:
   title: 数据库和表
   order: 2
 title: 清空表
-order: 8
+order: 17
 ---
 
 # 清空表

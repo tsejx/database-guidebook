@@ -6,7 +6,7 @@ group:
   title: 数据库和表
   order: 2
 title: 重命名表
-order: 7
+order: 15
 ---
 
 # 重命名表

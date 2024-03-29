@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 3
 title: 计算字段
-order: 100
+order: 40
 ---
 
 # 计算字段

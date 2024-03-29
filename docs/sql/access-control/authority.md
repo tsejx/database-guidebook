@@ -3,10 +3,10 @@ nav:
   title: SQL
   order: 2
 group:
-  title: 概览
-  order: 1
+  title: 高级用法
+  order: 4
 title: 权限管理
-order: 5
+order: 20
 ---
 
 # 权限管理

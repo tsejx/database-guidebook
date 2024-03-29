@@ -3,13 +3,13 @@ nav:
   title: SQL
   order: 2
 group:
-  title: 高阶用法
-  order: 5
-title: 数据库事务
-order: 1
+  title: 高级用法
+  order: 4
+title: 事务
+order: 7
 ---
 
-# 数据库事务
+# 事务
 
 1. 数据库事务
 2. 存储引擎概述

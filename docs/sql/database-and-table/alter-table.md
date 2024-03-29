@@ -5,11 +5,11 @@ nav:
 group:
   title: 数据库和表
   order: 2
-title: 修改表
-order: 5
+title: 修改表结构
+order: 13
 ---
 
-# 修改表
+# 修改表结构
 
 ## 语法
 

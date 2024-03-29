@@ -3,10 +3,10 @@ nav:
   title: SQL
   order: 2
 group:
-  title: 基础语法
-  order: 3
+  title: 数据库和表
+  order: 2
 title: 数据类型
-order: 2
+order: 10
 ---
 
 # 数据类型

@@ -6,7 +6,7 @@ group:
   title: 数据库和表
   order: 2
 title: 主键
-order: 9
+order: 20
 ---
 
 # 主键
@@ -182,6 +182,9 @@ ALTER TABLE users MODIFY user_id INT AUTO_INCREMENT;
 ```
 
 这条语句将 `user_id` 修改为自增属性，前提是 `user_id` 已经是主键或唯一索引的一部分。
+
+> 注意：
+> 1. MySQL 不会重用删除的序列值
 
 
 ## 注意事项

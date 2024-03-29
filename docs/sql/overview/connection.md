@@ -5,11 +5,11 @@ nav:
 group:
   title: 概览
   order: 1
-title: 连接
+title: 数据库连接
 order: 3
 ---
 
-## 连接
+## 数据库连接
 
 三种连接方式：
 

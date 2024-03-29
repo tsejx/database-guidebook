@@ -5,11 +5,11 @@ nav:
 group:
   title: 基础语法
   order: 3
-title: 连接表
-order: 11
+title: 连接查询
+order: 15
 ---
 
-# 连接表
+# 连接查询
 
 ## 内部联结 INNER JOIN
 

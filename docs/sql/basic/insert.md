@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 3
 title: 插入数据
-order: 20
+order: 30
 ---
 
 # 插入数据

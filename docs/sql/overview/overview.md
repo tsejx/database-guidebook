@@ -5,11 +5,11 @@ nav:
 group:
   title: 概览
   order: 1
-title: 概述
+title: SQL概览
 order: 1
 ---
 
-# 概述
+# SQL概览
 
 当谈到数据库时，SQL（Structured Query Language）是一种不可或缺的语言，用于管理和操作关系型数据库系统。SQL提供了一种结构化的方式，使用户能够定义、查询和操作数据库中的数据。无论是初学者还是经验丰富的数据库专业人员，都可以通过SQL有效地与数据库交互。
 

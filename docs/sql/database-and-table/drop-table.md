@@ -6,7 +6,7 @@ group:
   title: 数据库和表
   order: 2
 title: 删除表
-order: 6
+order: 14
 ---
 
 # 删除表

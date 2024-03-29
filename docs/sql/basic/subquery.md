@@ -6,7 +6,7 @@ group:
   title: 基础语法
   order: 3
 title: 子查询
-order: 12
+order: 16
 ---
 
 # 子查询
