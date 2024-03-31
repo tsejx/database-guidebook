@@ -16,6 +16,11 @@ order: 1
 - [MySQL - mysql.com](https://www.mysql.com/)
 - [MySQL 教程](https://www.runoob.com/mysql/mysql-tutorial.html)
 - [数据库教程 MySQL 教程](https://www.sjkjc.com/mysql/)
+- [SQL Tutorial](https://www.tutorialspoint.com/sql/index.htm)
+- [W3C Schools](https://www.w3schools.com/sql/default.asp)
+- [SQLZoo](https://sqlzoo.net/wiki/SQL_Tutorial)
+- [SQLBolt](https://sqlbolt.com/)
+- [自学SQL网 XUESQL](http://xuesql.cn/)
 
 ## 书籍推荐
 
@@ -34,10 +39,11 @@ order: 1
 - [牛客网](https://www.nowcoder.com/exam/oj?page=1&tab=SQL%E7%AF%87&topicId=82)
 - [SQLZOO](https://sqlzoo.net/wiki/SQL_Tutorial)
 - [LeetCode](https://leetcode.cn/problemset/database/)
+-
 
 在线执行：
 
-- http://sqlfiddle.com/
-- https://www.db-fiddle.com
-- https://dbfiddle.uk
-- https://sqliteonline.com
+- [SQL Practice](https://www.sql-practice.com/)
+- [SQL Fiddle](https://sqlfiddle.com/)
+- [DB Fiddle](https://www.db-fiddle.com/)
+- [SQL Online IDE](https://sqliteonline.com/)

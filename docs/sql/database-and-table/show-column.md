@@ -23,18 +23,18 @@ SHOW TABLES;
 
 注意事项：
 
-- 必须先使用 USE 命令选择数据库。
+- 必须先使用 `USE` 命令选择数据库。
 
 ## 查看表的结构
 
-查看表的结构意味着获取表的列信息，包括列名、数据类型、是否允许NULL、键信息等。
+查看表的结构意味着获取表的列信息，包括列名、数据类型、是否允许 NULL、键信息等。
 
 ```sql
 DESCRIBE tb_name;
 SHOW COLUMNS FROM tb_name;
 ```
 
-这两条命令都会显示表 mytable 的结构。
+这两条命令都会显示表 tb_name 的结构。
 
 注意事项：
 
@@ -45,10 +45,10 @@ SHOW COLUMNS FROM tb_name;
 此操作允许用户查看用于创建指定表的完整SQL语句，这对于理解表结构或在不同数据库之间复制表结构非常有用。
 
 ```sql
-SHOW CREATE TABLE table_name;
+SHOW CREATE TABLE tbl_name;
 ```
 
-这条命令将显示创建 table_name 表的SQL语句，包括所有的列定义、键定义和其他表选项。
+这条命令将显示创建 tbl_name 表的SQL语句，包括所有的列定义、键定义和其他表选项。
 
 注意事项：
 

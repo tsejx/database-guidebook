@@ -159,14 +159,14 @@ partition_options:
   - `RENAME INDEX <old_index_name> TO <new_index_name>`：重命名索引
   - `RENAME <new_tbl_name>`：重命名表
 
-## 修改数据表
+## 修改表语法
 
 如果需要对表做 <strong style="color:red">结构</strong> 上的改变，可以将表删除然后重新创建表，但是这种效率会产生一些额外的工作，数据会重新加载进来，如果此时有服务正在访问的话，也会影响服务读取表中的数据，所以此时，我们需要表的修改语句来对已经创建好的表的定义进行修改。
 
 常用命令：
 
 ```sql
-ALTER TABLE <table_name> MODIFY [COLUMN] <column_definition> [FIRST | AFTER <column_name>];
+ALTER TABLE <tbl_name> MODIFY [COLUMN] <column_definition> [FIRST | AFTER <column_name>];
 ```
 
 比如我们想要将 `students` 表中的 `name` 由 `varchar(20)` 改为 `varchar(25)`，可以使用如下语句：
@@ -180,7 +180,7 @@ ALTER TABLE students MODIFY name VARCHAR(25);
 语法：
 
 ```sql
-ALTER TABLE <table_name> RENAME TO <new_table_name>;
+ALTER TABLE <tbl_name> RENAME TO <new_tbl_name>;
 ```
 
 ### 添加表字段
@@ -188,7 +188,7 @@ ALTER TABLE <table_name> RENAME TO <new_table_name>;
 语法：
 
 ```sql
-ALTER TABLE <table_name> ADD <field> INT;
+ALTER TABLE <tbl_name> ADD <field> INT;
 ```
 
 如果需要指定新增字段的位置，可以使用 MySQL 提供的关键字 `FIRST`（设定为第一列），`AFTER` 字段名（设定位于某个字段之后）。
@@ -196,12 +196,12 @@ ALTER TABLE <table_name> ADD <field> INT;
 尝试以下 `ALTER TABLE` 语句，在执行成功后，使用 `SHOW COLUMNS` 查看表结构的变化：
 
 ```sql
-ALTER TABLE <table_name> DROP <column_name>;
+ALTER TABLE <tbl_name> DROP <column_name>;
 -- 在第一列插入 column_name
-ALTER TABLE <table_name> ADD <column_name> INT FIRST;
-ALTER TABLE <table_name> DROP <column_name>;
+ALTER TABLE <tbl_name> ADD <column_name> INT FIRST;
+ALTER TABLE <tbl_name> DROP <column_name>;
 -- 在 column_name2 之后新增名为 column_name 的列
-ALTER TABLE <table_name> ADD <column_name> INT AFTER <column_name2>;
+ALTER TABLE <tbl_name> ADD <column_name> INT AFTER <column_name2>;
 ```
 
 `FIRST` 和 `AFTER` 关键字可用于 `ADD` 与 `MODIFT` 子句，所以如果你想重置数据表字段的位置就需要先使用 `DROP` 删除字段然后使用 `ADD` 来添加字段并设置位置。
@@ -225,7 +225,7 @@ ALTER TABLE students ADD COLUMN student_no INT UNSIGNED NOT NULL AUTO_INCREMENT 
 语法：
 
 ```sql
-ALTER TABLE <table_name> MODIFY <column_name> <column_definition>;
+ALTER TABLE <tbl_name> MODIFY <column_name> <column_definition>;
 ```
 
 示例：把字段 `nickName` 字段的类型从 `VARCHAR(5)` 该为 `VARCHAR(20)`，可执行以下命令
@@ -241,9 +241,9 @@ ALTER TABLE students MODIFY nick_name VARCHAR(20) DEFAULT NULL COMMENT '昵称';
 语法：
 
 ```sql
-ALTER TABLE <table_name> CHANGE <old_column_name1> <new_column_name1> <column_definition>;
-ALTER TABLE <table_name> CHANGE <old_column_name2> <new_column_name2> <column_definition> DEFAULT <default_value>;
-ALTER TABLE <table_name> CHANGE <old_column_name3> <new_column_name3> <column_definition> DEFAULT <default_value> COMMENT "注释";
+ALTER TABLE <tbl_name> CHANGE <old_column_name1> <new_column_name1> <column_definition>;
+ALTER TABLE <tbl_name> CHANGE <old_column_name2> <new_column_name2> <column_definition> DEFAULT <default_value>;
+ALTER TABLE <tbl_name> CHANGE <old_column_name3> <new_column_name3> <column_definition> DEFAULT <default_value> COMMENT "注释";
 ```
 
 当你修改字段时，你可以指定是否包含值或者是否设置默认值。
@@ -263,9 +263,9 @@ ALTER TABLE students CHANGE age BIGINT NOT NULL DEFAULT 0;
 以下实例，指定字段 `balance` 为 `NOT NULL` 且默认值为 1000。
 
 ```sql
-ALTER TABLE <table_name> ALTER balance SET DEFAULT 1000;
+ALTER TABLE <tbl_name> ALTER balance SET DEFAULT 1000;
 
-SHOW COLUMNS FROM <table_name>;
+SHOW COLUMNS FROM <tbl_name>;
 ```
 
 ### 修改表类型
@@ -273,8 +273,8 @@ SHOW COLUMNS FROM <table_name>;
 语法：
 
 ```sql
-ALTER TABLE <table_name> ENGINE = MYISAM;
-SHOW TABLE STATUS LIKE '<table_name>'\G
+ALTER TABLE <tbl_name> ENGINE = MYISAM;
+SHOW TABLE STATUS LIKE '<tbl_name>'\G
 ```
 
 ### 删除表字段
@@ -282,7 +282,7 @@ SHOW TABLE STATUS LIKE '<table_name>'\G
 语法：
 
 ```sql
-ALTER TABLE <table_name> DROP <column_name>;
+ALTER TABLE <tbl_name> DROP <column_name>;
 ```
 
 如果数据表中只剩下一个字段则无法使用 `DROP` 来删除字段。
