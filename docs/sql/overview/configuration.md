@@ -6,17 +6,61 @@ group:
   title: 概览
   order: 1
 title: 数据库配置
-order: 4
+order: 5
 ---
 
 # 数据库配置
+
+## 相关目录和文件
+
+| 名称       | 路径                                | 说明                             |
+| :--------- | :---------------------------------- | :------------------------------- |
+| 数据库目录 | `/var/lib/mysql`                    |                                  |
+|            | `/usr/local/Cellar/mysql/<version>` | MacOS 使用 Homebrew 安装         |
+| 配置文件   | `/usr/share/mysql`                  | `mysql.server` 命令及配置文件    |
+|            | `/usr/local/etc`                    | MacOS 使用 Homebrew 安装         |
+| 相关命令   | `/usr/bin`                          | `mysqladmin`、`mysqldump` 等命令 |
+|            | `/usr/local/bin`                    | MacOS 使用 Homebrew 安装         |
+| 启动脚本   | `/etc/rc.d/init.d/`                 | 启动脚本文件 MySQL 的目录        |
+
+## 更改目录
+
+MySQL 默认的数据文件存储目录为 `/var/lib/mysql`。如果要把目录移动到 `/home/data` 下需要以下几步：
+
+```bash
+$ cd /home & mkdir data
+
+# 将 MySQL 服务进程停掉
+mysqladmin -u root -p shutdown
+
+# 将 /var/lib/mysql 整个目录移到 /home/data
+mv /var/lib/mysql /home/data/
+
+# 找到 my.cnf 配置文件
+# 如果 /etc/ 目录下没有 my.cnf 配置文件，请到 /usr/share/mysql/ 下找到 *.cnf 文件，拷贝其中一个到 /etc/ 并改名为 my.cnf 中
+cp /usr/share/mysql/my-medium.cnf /etc/my.cnf
+
+# 编辑 MySQL 的配置文件 /etc/my.cnf
+# 为保证 MySQL 能够正常工作，需要指明 mysql.sock 文件的产生位置
+# 修改 socket=/var/lib/mysql/mysql.sock 一行中等号右边的值为 /home/mysql/mysql.sock
+vi my.cnf
+# 省略编辑
+
+# 修改 MySQL 启动脚本 /etc/rc.d/init.d/mysql
+# 将其中 datadir=/var/lib/mysql 一行中，等号右边路径改成你现在的实际存放路径：home/data/mysql
+
+# 重新启动 MySQL 服务
+/etc/rc.d/init.d/mysql start
+```
+
+## 配置文件
 
 MySQL 配置文件：
 
 - Windows：`my.ini`
 - Linux（MacOS）：`my.cnf`（位于 `/etc/my.cnf`）
 
-## 配置说明
+### 配置说明
 
 ```shell
 [client]
@@ -113,6 +157,24 @@ write_buffer = 2M
 
 [mysqlhotcopy]
 interactive-timeout
+```
+
+## 环境变量配置
+
+方便以后每次的开启、停止和重启，就不用像上面命令一样每次都要加路径。
+
+```bash
+# 打开 .bash_profile 添加 mysql.server 路径
+vim ~/.bash_profile
+
+# 添加以下变量：
+export MYSQL_HOME=/usr/local/mysql
+export PATH=${PATH}:${MYSQL_HOME}/support-files
+
+# 保存 .bash_profile 文件后使用 source 命令让刚才的改动生效
+source !/.bash_profile
+
+# 最后使用 sudo /usr/local/mysql/support-files/mysql.server start 验证是否配置成功即可
 ```
 
 ## 参考资料

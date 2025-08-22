@@ -6,16 +6,39 @@ group:
   title: 概览
   order: 1
 title: 数据库连接
-order: 3
+order: 4
 ---
 
-## 数据库连接
+# 数据库连接
 
-三种连接方式：
+## 直接连接
 
-1. TCP/IP
-2. Socket
-3. SSH
+- 原理：应用程序通过数据库厂商提供的驱动（Driver），直接建立 TCP/IP 连接到数据库。
+- 优点：简单、直接、性能较好。
+- 缺点：连接信息（账号、密码、IP、端口）可能暴露在代码中，不利于安全和维护。
+- 应用场景：小型项目、学习、临时脚本。
+
+常见用法：
+
+MySQL（Node.js / Python 示例）
+
+```js
+// Node.js
+const mysql = require('mysql2');
+const conn = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '123456',
+  database: 'test'
+});
+```
+
+```python
+# Python
+import pymysql
+conn = pymysql.connect(host="localhost", user="root", password="123456", database="test")
+```
+
 
 ## Socket
 
