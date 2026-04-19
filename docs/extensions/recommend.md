@@ -21,6 +21,8 @@ order: 1
 - [SQLZoo](https://sqlzoo.net/wiki/SQL_Tutorial)
 - [SQLBolt](https://sqlbolt.com/)
 - [自学SQL网 XUESQL](http://xuesql.cn/)
+- [PostgreSQL 笔记分享](https://github.com/lovebetterworld/postgres)
+- [最全、最详细、最全面的学习教程！PostgreSQL 打怪升级进阶成神之路（2023最新版）](https://zhuanlan.zhihu.com/p/645899384)
 
 ## 书籍推荐
 

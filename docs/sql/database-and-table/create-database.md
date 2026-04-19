@@ -1,12 +1,12 @@
 ---
 nav:
-  title：SQL
-  order：2
+  title: SQL
+  order: 2
 group:
-  title：数据库和表
-  order：2
-title：创建数据库
-order：1
+  title: 数据库和表
+  order: 2
+title: 创建数据库
+order: 1
 ---
 
 # 创建数据库
